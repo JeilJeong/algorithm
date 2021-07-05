@@ -26,13 +26,11 @@ int		main(void)
 int* solution(const char* s) {
     // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
     int     i;
-	int		j;
     int     sum;
     int     zero_cnt;
     int     *result;
     char    *cpy;
     
-	j = 0;
     zero_cnt = 0;
     if (!(result = (int *)calloc(2, sizeof(int))))
         return (NULL);
@@ -45,9 +43,6 @@ int* solution(const char* s) {
     strcpy(cpy, s);
     while (strcmp(cpy, "1") != 0)
     {
-		j++;
-		if (j > 20)
-			sleep(10);
         result[0] += 1;
 		sum = 0;
         i = -1;
