@@ -28,9 +28,9 @@ int* solution(int n)
     int     i;
     int     j;
     int     p;
-    int     q;
     int     *ret;
     int     **tri;
+    int     repeat_n;
     
     if (!n)
         return (NULL);
@@ -58,19 +58,30 @@ int* solution(int n)
     count = 0;
     i = -1;
     j = 0;
-    p = 0;
+    repeat_n = n;
     while (count < len)
     {
 		repeat = -1;
-        while ((++repeat < (n - (p * 3))) && count < len)
+        while (++repeat < repeat_n && count < len)
+        {
             tri[++i][j] = ++count;
+            printf("tri[%d][%d] = %d\n", i, j, tri[i][j]);
+        }
+        repeat_n--;
 		repeat = -1;
-        while ((++repeat < ((n - (p * 3)) - 1)) && count < len) 
+        while (++repeat < repeat_n && count < len) 
+        {
             tri[i][++j] = ++count;
-        p++;
+            printf("    tri[%d][%d] = %d\n", i, j, tri[i][j]);
+        }
+        repeat_n--;
         repeat = -1;
-        while ((++repeat < (n - (p * 2))) && count < len)
+        while (++repeat < repeat_n && count < len)
+        {
             tri[--i][--j] = ++count;
+            printf("        tri[%d][%d] = %d\n", i, j, tri[i][j]);
+        }
+        repeat_n--;
     }
     if (!(ret = (int *)calloc(len, sizeof(int))))
     {
