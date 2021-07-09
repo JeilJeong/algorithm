@@ -13,11 +13,12 @@ char	*solution(const char* number, int k)
 	char	*ret;
 
 	len = strlen(number) - k;
-	if (!(ret = (char *)malloc(sizeof(char) * len)))
+	if (!(ret = (char *)malloc(sizeof(char) * (len + 1))))
 	{
 		printf("malloc error: ret << solution\n");
 		return (NULL);
-	}
+	}]
+	ret[len] = '\0';
 	i = -1;
 	start = -1;
 	end = k;
