@@ -63,24 +63,15 @@ int* solution(int n)
     {
 		repeat = -1;
         while (++repeat < repeat_n && count < len)
-        {
             tri[++i][j] = ++count;
-            printf("tri[%d][%d] = %d\n", i, j, tri[i][j]);
-        }
         repeat_n--;
 		repeat = -1;
         while (++repeat < repeat_n && count < len) 
-        {
             tri[i][++j] = ++count;
-            printf("    tri[%d][%d] = %d\n", i, j, tri[i][j]);
-        }
         repeat_n--;
         repeat = -1;
         while (++repeat < repeat_n && count < len)
-        {
             tri[--i][--j] = ++count;
-            printf("        tri[%d][%d] = %d\n", i, j, tri[i][j]);
-        }
         repeat_n--;
     }
     if (!(ret = (int *)calloc(len, sizeof(int))))
