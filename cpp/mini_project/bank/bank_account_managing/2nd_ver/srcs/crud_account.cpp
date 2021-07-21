@@ -4,6 +4,7 @@
 
 using namespace	std;
 
+// store each object by using global_array_variable=pAccount[]
 Account *pAccount[ACCOUNT_NUMBER];
 int		current_count = 0;
 
@@ -17,7 +18,7 @@ void	show_menu(void)
 	cout << "[4] Print" << endl;
 	cout << "[5] Exit" << endl;
 }
-
+// definition for member_method & constructor of Account class
 Account::Account(int addr, char *name, double balance) : addr(addr), balance(balance)
 {
 	int	len = strlen(name) + 1;

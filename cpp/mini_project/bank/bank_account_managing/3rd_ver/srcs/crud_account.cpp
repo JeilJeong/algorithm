@@ -18,6 +18,7 @@ void	show_menu(void)
 	cout << "[5] Exit" << endl;
 }
 
+// Constructor
 Account::Account()
 {
 	this->addr = 0;
@@ -34,26 +35,28 @@ Account::Account(int addr, char *name, double balance) : addr(addr), balance(bal
 
 Account::Account(const Account &rhs) : addr(rhs.addr), balance(rhs.balance)
 {
-	cout << "복사 생성자" << endl;
+	cout << "Copy Constructor" << endl;
 	this->name = new char[strlen(rhs.name) + 1];
 	strcpy(this->name, rhs.name);
 }
 
 Account::Account(Account &&rhs) : addr(rhs.addr), balance(rhs.balance)
 {
-	cout << "이동 생성자" << endl;
+	cout << "Move Constructor" << endl;
 	this->name = rhs.name;
 	rhs.name = NULL;
 }
 
+// Destructor
 Account::~Account()
 {
 	delete[] name;
 }
-	
+
+// Overloaded Operator
 Account &Account::operator=(const Account &rhs)
 {
-	cout << "복사 대입 연산자" << endl;
+	cout << "Copy Assignment Operator" << endl;
 	if (this != &rhs)
 	{
 		delete[] this->name;
@@ -67,7 +70,7 @@ Account &Account::operator=(const Account &rhs)
 
 Account &Account::operator=(Account &&rhs)
 {
-	cout << "이동 대입 연산자" << endl;
+	cout << "Move Assignment Operator" << endl;
 	this->addr = rhs.addr;
 	this->balance = rhs.balance;
 	this->name = rhs.name;
@@ -75,6 +78,7 @@ Account &Account::operator=(Account &&rhs)
 	return (*this);
 }
 
+// Member Method
 bool	Account::add_balance(const double balance)
 {
 	this->balance += balance;
@@ -91,6 +95,7 @@ void	Account::show_info() const
 	cout << "balance : " << this->balance << endl;
 }
 
+// Global Method
 Account	*create_account(void)
 {
 	int		addr;
@@ -186,6 +191,7 @@ void	all_print(void)
 	}
 }
 
+// for preventing memory leak
 void	prog_exit(void)
 {
 	int		i = -1;

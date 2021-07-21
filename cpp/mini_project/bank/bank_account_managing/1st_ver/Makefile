@@ -25,6 +25,6 @@ fclean: clean
 re: fclean all
 
 leak:
-	valgrind --leak-check=full -error-limit=no ./$(TARGET)
+	valgrind --leak-check=full --error-limit=no ./$(TARGET)
 
 .PHONY: all clean fclean re leak

@@ -16,12 +16,14 @@ class Account {
 public:
 	Account();
 	Account(int addr, char *name, double balance);
-	// 복사 & 이동 생성자
+	// Adding (copy & move)_constructor
+		// copy_constructor for deep copy of pointer variable
+		// move_constructor for return value which can create temporary object for returning
 	Account(const Account &rhs);
 	Account(Account &&rhs);
 	~Account();
 
-	// 복사 & 이동 대입 연산자
+	// Adding (copy & move)_assignment_operator
 	Account &operator=(const Account &rhs);
 	Account &operator=(Account &&rhs);
 
