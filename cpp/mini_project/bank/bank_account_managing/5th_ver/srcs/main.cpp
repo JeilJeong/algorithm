@@ -3,14 +3,6 @@
 
 using namespace	std;
 
-Account	ret_normal(void)
-{
-	cout << "ret_normal" << endl;
-	char s[] = "noraml";
-	Account ret(2, s, 1000);
-	return (ret);
-}
-
 int		main(void)
 {
 	int		select;
